@@ -10,10 +10,8 @@ namespace WebApi.Entities
         public DateTime PublishDate { get; set; }
         public int GenreId { get; set; }
         public Genre Genre { get; set; }
-        public int DirectorId { get; set; }
-        public Director Director { get; set; }
-        public int ActorId { get; set; }
-        public Actor Actor { get; set; }
-        public int Price { get; set; }
+        public virtual ICollection<DirectorFilm> DirectorFilm { get; set; }
+        public virtual ICollection<ActorFilm> ActorFilm { get; set; }
+        public double Price { get; set; }
     }
 }
