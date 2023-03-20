@@ -5,6 +5,9 @@ using WebApi.Entities;
 using WebApi.Application.ActorOperations.Queries.GetActor;
 using WebApi.Application.ActorOperations.Queries.GetActorDetails;
 using WebApi.Application.ActorOperations.Commands.CreateActor;
+using WebApi.Application.DirectorOperations.Queries.GetDirector;
+using WebApi.Application.DirectorOperations.Queries.GetDirectorDetails;
+using WebApi.Application.DirectorOperations.Commands.CreateDirector;
 
 namespace WebApi.Common
 {
@@ -34,6 +37,17 @@ namespace WebApi.Common
 
             //Actor Operations Commands Create Actor
             CreateMap<CreateActorViewModel, Actor>();
+
+            //Director Operations Queries Get
+            CreateMap<Director, DirectorViewModel>()
+                .ForMember(dest => dest.Films, opt => opt.MapFrom(m => m.DirectorFilm.Select(s => s.Film.Title)));
+
+            //Director Operations Queries Get Details
+            CreateMap<Director, DirectorViewIdModel>()
+                .ForMember(dest => dest.Films, opt => opt.MapFrom(m => m.DirectorFilm.Select(s => s.Film.Title)));
+
+            //Director Operations Commands Create Director
+            CreateMap<CreateDirectorViewModel, Director>();
         }
     }
 }

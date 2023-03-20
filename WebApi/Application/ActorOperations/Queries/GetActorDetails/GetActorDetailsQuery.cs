@@ -18,9 +18,12 @@ namespace WebApi.Application.ActorOperations.Queries.GetActorDetails
         public ActorsViewIdModel Handle()
         {
             var actor = _context.Actors.Include(x=> x.ActorFilm).ThenInclude(x=> x.Film).Where(actor=> actor.Id == ActorId).SingleOrDefault();
+
             if(actor == null)
                 throw new InvalidOperationException("The Id you entered does not match any actor.");
+
             ActorsViewIdModel vm = _mapper.Map<ActorsViewIdModel>(actor); 
+            
             return vm;
         }
     }

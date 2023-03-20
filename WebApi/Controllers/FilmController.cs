@@ -24,19 +24,24 @@ public class FilmController : ControllerBase
     public IActionResult GetMovies()
     {
         GetMoviesQuery query = new GetMoviesQuery(_context,_mapper);
+        
         var result = query.Handle();
+
         return Ok(result);
     }
 
     [HttpGet("{id}")]
     [return: System.Diagnostics.CodeAnalysis.MaybeNull]
-    public IActionResult GetById(int id)
+    public IActionResult GetMoviesById(int id)
     {
         FilmsViewIdModel result;
+
         GetMovieDetailQuery query = new GetMovieDetailQuery(_context, _mapper);
         query.FilmId = id;
+
         GetMovieDetailQueryValidator validator = new GetMovieDetailQueryValidator();
         validator.ValidateAndThrow(query);
+
         result = query.Handle();
 
         return Ok(result);

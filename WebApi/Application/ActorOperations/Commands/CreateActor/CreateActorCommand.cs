@@ -18,7 +18,7 @@ namespace WebApi.Application.ActorOperations.Commands.CreateActor
 
         public void Handle()
         {
-            var actor = _context.Actors.SingleOrDefault(x=> x.NameSurname == Model.NameSurname);
+            var actor = _context.Actors.SingleOrDefault(x => x.NameSurname == Model.NameSurname);
             if(actor != null)
                 throw new InvalidOperationException("This Actor already exists.");
 

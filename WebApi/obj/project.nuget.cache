@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FCfPCjb7XY+VrOcmVSztql/GRBdTb/tMC2l3f7z40Zhcfjs1PStQEzoYIrfe+15miar1AmkZILqxK6KwzyDBzQ==",
+  "dgSpecHash": "Fiumlak/KeOjwsuRxJS0qhZ2YoLwlLerP5ruF8TLe2mxANZUCCZoLY7yCBU0RwjBOcwyURYNfgIT2tGEQlAcxA==",
   "success": true,
-  "projectFilePath": "c:\\Users\\Mirac\\Documents\\MovieStore-WebApi\\WebApi\\WebApi.csproj",
+  "projectFilePath": "C:\\Users\\Mirac\\Documents\\MovieStore-WebApi\\WebApi\\WebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Mirac\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Mirac\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",

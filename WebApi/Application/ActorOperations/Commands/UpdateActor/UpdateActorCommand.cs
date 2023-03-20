@@ -17,10 +17,10 @@ namespace WebApi.Application.ActorOperations.Commands.UpdateActor
         {
             var actor = _context.Actors.SingleOrDefault(x=> x.Id == ActorId);
             if(actor == null)
-                throw new InvalidOperationException("Actor could not be found");
+                throw new InvalidOperationException("Actor could not be found!");
 
             if(_context.Actors.Any(x=> x.NameSurname.ToLower() == Model.NameSurname.ToLower() && x.Id != ActorId))
-                throw new InvalidOperationException("Actor alreadt exists");
+                throw new InvalidOperationException("Actor already exists!");
 
             actor.NameSurname = Model.NameSurname != default ? Model.NameSurname : actor.NameSurname;
 
