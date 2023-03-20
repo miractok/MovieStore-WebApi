@@ -2,12 +2,15 @@ using AutoMapper;
 using WebApi.Application.FilmOperations.Queries.GetMovies;
 using WebApi.Application.FilmOperations.Queries.GetMovieDetails;
 using WebApi.Entities;
-using WebApi.Application.ActorOperations.Queries.GetActor;
+using WebApi.Application.ActorOperations.Queries.GetActors;
 using WebApi.Application.ActorOperations.Queries.GetActorDetails;
 using WebApi.Application.ActorOperations.Commands.CreateActor;
-using WebApi.Application.DirectorOperations.Queries.GetDirector;
+using WebApi.Application.DirectorOperations.Queries.GetDirectors;
 using WebApi.Application.DirectorOperations.Queries.GetDirectorDetails;
 using WebApi.Application.DirectorOperations.Commands.CreateDirector;
+using WebApi.Application.GenreOperations.Queries.GetGenres;
+using WebApi.Application.GenreOperations.Queries.GetGenreDetails;
+using WebApi.Application.GenreOperations.Commands.CreateGenre;
 
 namespace WebApi.Common
 {
@@ -48,6 +51,15 @@ namespace WebApi.Common
 
             //Director Operations Commands Create Director
             CreateMap<CreateDirectorViewModel, Director>();
+
+            //Genre Operations Queries Get
+            CreateMap<Genre, GenresViewModel>();
+
+            //Genre Operations Queries Get Details
+            CreateMap<Genre, GenresViewIdModel>();
+
+            //Actor Operations Commands Create Actor
+            CreateMap<CreateGenreViewModel, Genre>();
         }
     }
 }

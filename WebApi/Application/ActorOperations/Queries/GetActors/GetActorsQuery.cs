@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using WebApi.DBOperations;
 using WebApi.Entities;
 
-namespace WebApi.Application.ActorOperations.Queries.GetActor
+namespace WebApi.Application.ActorOperations.Queries.GetActors
 {
     public class GetActorsQuery
     {

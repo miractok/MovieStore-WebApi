@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using WebApi.DBOperations;
 using WebApi.Entities;
 
-namespace WebApi.Application.DirectorOperations.Queries.GetDirector
+namespace WebApi.Application.DirectorOperations.Queries.GetDirectors
 {
     public class GetDirectorsQuery
     {

@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using WebApi.Application.DirectorOperations.Commands.CreateDirector;
 using WebApi.Application.DirectorOperations.Commands.DeleteDirector;
 using WebApi.Application.DirectorOperations.Commands.UpdateDirector;
-using WebApi.Application.DirectorOperations.Queries.GetDirector;
+using WebApi.Application.DirectorOperations.Queries.GetDirectors;
 using WebApi.Application.DirectorOperations.Queries.GetDirectorDetails;
 using WebApi.DBOperations;
 

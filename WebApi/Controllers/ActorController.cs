@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using WebApi.Application.ActorOperations.Commands.CreateActor;
 using WebApi.Application.ActorOperations.Commands.DeleteActor;
 using WebApi.Application.ActorOperations.Commands.UpdateActor;
-using WebApi.Application.ActorOperations.Queries.GetActor;
+using WebApi.Application.ActorOperations.Queries.GetActors;
 using WebApi.Application.ActorOperations.Queries.GetActorDetails;
 using WebApi.DBOperations;
 
@@ -24,7 +24,7 @@ public class ActorController : ControllerBase
     }
 
     [HttpGet]
-    public IActionResult GetMovies()
+    public IActionResult GetActors()
     {
         GetActorsQuery query = new GetActorsQuery(_mapper,_context);
 
@@ -35,7 +35,7 @@ public class ActorController : ControllerBase
 
     [HttpGet("{id}")]
     [return: System.Diagnostics.CodeAnalysis.MaybeNull]
-    public IActionResult GetById(int id)
+    public IActionResult GetActorById(int id)
     {
         ActorsViewIdModel result;
 

@@ -32,7 +32,7 @@ public class FilmController : ControllerBase
 
     [HttpGet("{id}")]
     [return: System.Diagnostics.CodeAnalysis.MaybeNull]
-    public IActionResult GetMoviesById(int id)
+    public IActionResult GetMovieById(int id)
     {
         FilmsViewIdModel result;
 
