@@ -3,14 +3,14 @@ using Microsoft.EntityFrameworkCore;
 using WebApi.DBOperations;
 using WebApi.Entities;
 
-namespace WebApi.Application.FilmOperations.Queries.GetMovies
+namespace WebApi.Application.FilmOperations.Queries.GetFilms
 {
-    public class GetMoviesQuery
+    public class GetFilmsQuery
     {
         private readonly IMovieStoreDbContext _context;
         private readonly IMapper _mapper;
 
-        public GetMoviesQuery(IMovieStoreDbContext context, IMapper mapper)
+        public GetFilmsQuery(IMovieStoreDbContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;

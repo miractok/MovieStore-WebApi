@@ -1,8 +1,11 @@
 using AutoMapper;
 using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
-using WebApi.Application.FilmOperations.Queries.GetMovies;
-using WebApi.Application.FilmOperations.Queries.GetMovieDetails;
+using WebApi.Application.FilmOperations.Commands.CreateFilm;
+using WebApi.Application.FilmOperations.Commands.DeleteFilm;
+using WebApi.Application.FilmOperations.Commands.UpdateFilm;
+using WebApi.Application.FilmOperations.Queries.GetFilmDetails;
+using WebApi.Application.FilmOperations.Queries.GetFilms;
 using WebApi.DBOperations;
 
 namespace WebApi.Controllers;
@@ -23,7 +26,7 @@ public class FilmController : ControllerBase
     [HttpGet]
     public IActionResult GetMovies()
     {
-        GetMoviesQuery query = new GetMoviesQuery(_context,_mapper);
+        GetFilmsQuery query = new GetFilmsQuery(_context,_mapper);
         
         var result = query.Handle();
 
@@ -36,14 +39,57 @@ public class FilmController : ControllerBase
     {
         FilmsViewIdModel result;
 
-        GetMovieDetailQuery query = new GetMovieDetailQuery(_context, _mapper);
+        GetFilmDetailQuery query = new GetFilmDetailQuery(_context, _mapper);
         query.FilmId = id;
 
-        GetMovieDetailQueryValidator validator = new GetMovieDetailQueryValidator();
+        GetFilmDetailQueryValidator validator = new GetFilmDetailQueryValidator();
         validator.ValidateAndThrow(query);
 
         result = query.Handle();
 
         return Ok(result);
+    }
+
+    [HttpPost]
+    public IActionResult AddFilm([FromBody] CreateFilmModel newFilm)
+    {
+        CreateFilmCommand command = new CreateFilmCommand(_mapper,_context);
+        command.Model = newFilm;
+
+        CreateFilmCommandValidator validator = new CreateFilmCommandValidator();
+        validator.ValidateAndThrow(command);
+
+        command.Handle();
+
+        return Ok();
+    }
+
+    [HttpDelete("id")]
+    public IActionResult DeleteFilm(int id)
+    {
+        DeleteFilmCommand command = new DeleteFilmCommand(_context);
+        command.FilmId = id;
+
+        DeleteFilmCommandValidator validator = new DeleteFilmCommandValidator();
+        validator.ValidateAndThrow(command);
+
+        command.Handle();
+
+        return Ok();
+    }
+
+    [HttpPut("id")]
+    public IActionResult UpdateFilm(int id,[FromBody] UpdateFilmModel updateFilm)
+    {
+        UpdateFilmCommand command = new UpdateFilmCommand(_context);
+        command.FilmId = id;
+        command.Model = updateFilm;
+        
+        UpdateFilmCommandValidator validator = new UpdateFilmCommandValidator();
+        validator.ValidateAndThrow(command);
+
+        command.Handle();
+        
+        return Ok();
     }
 }

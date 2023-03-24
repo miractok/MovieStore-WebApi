@@ -2,14 +2,14 @@ using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using WebApi.DBOperations;
 
-namespace WebApi.Application.FilmOperations.Queries.GetMovieDetails
+namespace WebApi.Application.FilmOperations.Queries.GetFilmDetails
 {
-    public class GetMovieDetailQuery
+    public class GetFilmDetailQuery
     {
         private readonly IMovieStoreDbContext _context;
         private readonly IMapper _mapper;
         public int FilmId { get; set; }
-        public GetMovieDetailQuery(IMovieStoreDbContext context, IMapper mapper)
+        public GetFilmDetailQuery(IMovieStoreDbContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
