@@ -18,6 +18,10 @@ namespace WebApi.Application.ActorOperations.Commands.DeleteActor
             if(actor == null)
                 throw new InvalidOperationException("Actor could not be found!");
 
+            var actorCheck = _context.ActorFilms.Where(x=> x.ActorId == actor.Id).Any();
+            if(actorCheck)
+                throw new InvalidOperationException("Actor cannot be deleted! First remove Actor/Actress from the Film.");
+
             _context.Actors.Remove(actor);
             _context.SaveChanges();
         }
