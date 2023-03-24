@@ -18,6 +18,10 @@ namespace WebApi.Application.DirectorOperations.Commands.DeleteDirector
             if(director == null)
                 throw new InvalidOperationException("Director could not be found!");
 
+            var directorCheck = _context.DirectorFilms.Where(x=> x.DirectorId == director.Id).Any();
+            if(directorCheck)
+                throw new InvalidOperationException("Director cannot be deleted! First remove Director from the Film.");
+
             _context.Directors.Remove(director);
             _context.SaveChanges();
         }
