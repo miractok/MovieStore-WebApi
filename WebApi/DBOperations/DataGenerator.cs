@@ -78,6 +78,16 @@ namespace WebApi.DBOperations
                     new ActorFilm{FilmId = 4, ActorId = 1}
                 );
 
+                context.Customers.AddRange(
+                    new Customer{NameSurname = "mirac", Email = "mirac@gmail.com", Password = "123456"}
+                );
+
+                context.FavouriteGenres.AddRange(
+                    new FavouriteGenre{CustomerId = 1, GenreId = 1},
+                    new FavouriteGenre{CustomerId = 1, GenreId = 2},
+                    new FavouriteGenre{CustomerId = 1, GenreId = 3}
+                );
+
                 context.SaveChanges();
             }
         }
