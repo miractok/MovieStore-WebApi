@@ -18,6 +18,11 @@ using WebApi.Application.DirectorFilmOperations.Commands.CreateDirectorFilm;
 using WebApi.Application.FilmOperations.Queries.GetFilms;
 using WebApi.Application.FilmOperations.Queries.GetFilmDetails;
 using WebApi.Application.FilmOperations.Commands.CreateFilm;
+using WebApi.Application.CustomerOperations.Commands.CreateCustomer;
+using WebApi.Application.CustomerOperations.Queries.GetCustomerDetails;
+using WebApi.Application.FavouriteGenreOperations.Queries.GetFavouriteGenre;
+using WebApi.Application.FavouriteGenreOperations.Queries.GetFavouriteGenreDetails;
+using WebApi.Application.FavouriteGenreOperations.Commands.CreateFavouriteGenre;
 
 namespace WebApi.Common
 {
@@ -28,6 +33,7 @@ namespace WebApi.Common
             //Film Operations Queries Get
             CreateMap<Film, FilmViewModel>()
                 .ForMember(dest => dest.Genre, opt => opt.MapFrom(src => src.Genre.Name))
+                .ForMember(dest => dest.PublishDate, opt => opt.MapFrom(src => src.PublishDate))
                 .ForMember(dest => dest.Director, opt => opt.MapFrom(m => m.DirectorFilm.Select(s => s.Director.NameSurname)))
                 .ForMember(dest => dest.Actors, opt => opt.MapFrom(m => m.ActorFilm.Select(s => s.Actor.NameSurname)));
 
@@ -88,6 +94,22 @@ namespace WebApi.Common
 
             //DirectorFilm Operations Commands Create 
             CreateMap<CreateDirectorFilmViewModel, DirectorFilm>();
+
+            //Customer Operations Queries Get Details
+            CreateMap<Customer, CustomerViewIdModel>()
+                .ForMember(dest => dest.FavouriteGenres, opt => opt.MapFrom(m => m.FavouriteGenres.Select(s => s.Genre.Name)));
+
+            //Customer Operations Commands Create
+            CreateMap<CreateCustomerModel, Customer>();
+
+            //FavouriteGenre Operations Queries Get
+            CreateMap<FavouriteGenre, FavouriteGenreViewModel>();
+
+            //FavouriteGenre Operations Queries Get Details
+            CreateMap<FavouriteGenre, FavouriteGenreViewIdModel>();
+
+            //FavouriteGenre Operations Commands Create 
+            CreateMap<CreateFavouriteGenreViewModel, FavouriteGenre>();
         }
     }
 }
