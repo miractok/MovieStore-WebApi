@@ -29,6 +29,7 @@ namespace WebApi.Application.DirectorFilmOperations.Commands.UpdateDirectorFilm
 
             directorFilm.FilmId = Model.FilmId != default ? Model.FilmId : directorFilm.FilmId;
             directorFilm.DirectorId = Model.DirectorId != default ? Model.DirectorId : directorFilm.DirectorId;
+            directorFilm.IsActive = Model.IsActive;
 
             _context.DirectorFilms.Update(directorFilm);
             _context.SaveChanges();

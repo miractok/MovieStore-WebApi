@@ -29,6 +29,7 @@ namespace WebApi.Application.FavouriteGenreOperations.Commands.UpdateFavouriteGe
 
             favouriteGenre.CustomerId = Model.CustomerId != default ? Model.CustomerId : favouriteGenre.CustomerId;
             favouriteGenre.GenreId = Model.GenreId != default ? Model.GenreId : favouriteGenre.GenreId;
+            favouriteGenre.IsActive = Model.IsActive;
 
             _context.FavouriteGenres.Update(favouriteGenre);
             _context.SaveChanges();

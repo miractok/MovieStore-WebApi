@@ -23,6 +23,7 @@ namespace WebApi.Application.GenreOperations.Commands.UpdateGenre
                 throw new InvalidOperationException("Genre already exists!");
 
             genre.Name = Model.Name != default ? Model.Name : genre.Name;
+            genre.IsActive = Model.IsActive;
 
             _context.Genres.Update(genre);
             _context.SaveChanges();
@@ -33,5 +34,6 @@ namespace WebApi.Application.GenreOperations.Commands.UpdateGenre
     public class UpdateGenreModel
     {
         public string Name { get; set; }
+        public bool IsActive { get; set; }
     }
 }

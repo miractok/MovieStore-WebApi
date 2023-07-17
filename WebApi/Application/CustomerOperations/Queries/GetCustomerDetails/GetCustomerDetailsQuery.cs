@@ -17,7 +17,7 @@ namespace WebApi.Application.CustomerOperations.Queries.GetCustomerDetails
 
         public CustomerViewIdModel Handle()
         {
-            var customer = _context.Customers.Include(x => x.FavouriteGenres).ThenInclude(x => x.Genre).Where(customer => customer.Id == CustomerId).SingleOrDefault();
+            var customer = _context.Customers.Include(x => x.FavouriteGenres).ThenInclude(x => x.Genre).Include(x => x.Orders).ThenInclude(x => x.Film).Where(customer => customer.Id == CustomerId).SingleOrDefault();
 
             if(customer == null)
                 throw new InvalidOperationException("The Id you entered does not match any customer.");
@@ -32,6 +32,7 @@ namespace WebApi.Application.CustomerOperations.Queries.GetCustomerDetails
     {
         public string NameSurname { get; set; }
         public IReadOnlyCollection<string> FavouriteGenres { get; set; }
+        public IReadOnlyCollection<string> Orders { get; set; }
         public bool IsActive { get; set; } = true;
     }
 }

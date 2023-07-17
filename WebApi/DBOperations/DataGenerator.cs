@@ -87,6 +87,11 @@ namespace WebApi.DBOperations
                     new FavouriteGenre{CustomerId = 1, GenreId = 2},
                     new FavouriteGenre{CustomerId = 1, GenreId = 3}
                 );
+                
+                context.Orders.AddRange(
+                    new Order{CustomerId = 1, FilmId = 1, PurchaseDate = new DateTime(2023,01,12)},
+                    new Order{CustomerId = 1, FilmId = 2, PurchaseDate = new DateTime(2023,01,12)}
+                );
 
                 context.SaveChanges();
             }

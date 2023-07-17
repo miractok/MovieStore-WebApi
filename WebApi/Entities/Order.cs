@@ -10,10 +10,7 @@ namespace WebApi.Entities
         public Customer Customer { get; set; }
         public int FilmId { get; set; }
         public Film Film { get; set; }
-        public int Price { get; set; }
         public DateTime PurchaseDate { get; set; }
-
         public bool IsActive { get; set; } = true;
-        
     }
 }

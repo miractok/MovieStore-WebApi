@@ -18,6 +18,11 @@ namespace WebApi.Application.GenreOperations.Commands.DeleteGenre
             if(genre == null)
                 throw new InvalidOperationException("Genre does not exist!");
 
+            var genreCheck = _context.Films.Where(x=> x.GenreId == genre.Id && genre.IsActive).Any();
+            if(genreCheck)
+                throw new InvalidOperationException("Genre cannot be deleted! First remove genre from use.");
+
+
             _context.Genres.Remove(genre);
             _context.SaveChanges();
         }

@@ -31,6 +31,6 @@ namespace WebApi.Application.GenreOperations.Queries.GetGenreDetails
     public class GenresViewIdModel
     {
         public string Name { get; set; }
-        public bool IsActive { get; set; } = true;
+        public bool IsActive { get; set; }
     }
 }

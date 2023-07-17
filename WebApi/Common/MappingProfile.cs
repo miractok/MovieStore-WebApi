@@ -23,6 +23,9 @@ using WebApi.Application.CustomerOperations.Queries.GetCustomerDetails;
 using WebApi.Application.FavouriteGenreOperations.Queries.GetFavouriteGenre;
 using WebApi.Application.FavouriteGenreOperations.Queries.GetFavouriteGenreDetails;
 using WebApi.Application.FavouriteGenreOperations.Commands.CreateFavouriteGenre;
+using WebApi.Application.OrderOperations.Queries.GetOrder;
+using WebApi.Application.OrderOperations.Commands.CreateOrder;
+using WebApi.Application.OrderOperations.Queries.GetOrderDetails;
 
 namespace WebApi.Common
 {
@@ -97,7 +100,8 @@ namespace WebApi.Common
 
             //Customer Operations Queries Get Details
             CreateMap<Customer, CustomerViewIdModel>()
-                .ForMember(dest => dest.FavouriteGenres, opt => opt.MapFrom(m => m.FavouriteGenres.Select(s => s.Genre.Name)));
+                .ForMember(dest => dest.FavouriteGenres, opt => opt.MapFrom(m => m.FavouriteGenres.Select(s => s.Genre.Name)))
+                .ForMember(dest => dest.Orders, opt => opt.MapFrom(m => m.Orders.Select(s => s.Film.Title)));
 
             //Customer Operations Commands Create
             CreateMap<CreateCustomerModel, Customer>();
@@ -110,6 +114,23 @@ namespace WebApi.Common
 
             //FavouriteGenre Operations Commands Create 
             CreateMap<CreateFavouriteGenreViewModel, FavouriteGenre>();
+
+            //Order Operations Queries Get
+            CreateMap<Order, OrderViewModel>()
+                .ForMember(dest => dest.NameSurname, opt => opt.MapFrom(src => src.Customer.NameSurname))
+                .ForMember(dest => dest.Films, opt => opt.MapFrom(src => src.Film.Title))
+                .ForMember(dest => dest.Price, opt => opt.MapFrom(src => src.Film.Price))
+                .ForMember(dest => dest.PurchaseDate, opt => opt.MapFrom(src => src.PurchaseDate));
+
+            //Order Operations Queries Get Details
+            CreateMap<Order, OrderViewIdModel>()
+                .ForMember(dest => dest.NameSurname, opt => opt.MapFrom(src => src.Customer.NameSurname))
+                .ForMember(dest => dest.Film, opt => opt.MapFrom(src => src.Film.Title))
+                .ForMember(dest => dest.Price, opt => opt.MapFrom(src => src.Film.Price))
+                .ForMember(dest => dest.PurchaseDate, opt => opt.MapFrom(src => src.PurchaseDate));
+
+            //Order Operations Commands Create 
+            CreateMap<CreateOrderViewModel, Order>();
         }
     }
 }
