@@ -4,12 +4,12 @@ using WebApi.DBOperations;
 
 namespace WebApi.Application.ActorOperations.Queries.GetActorDetails
 {
-    public class GetActorDetailQuery
+    public class GetActorDetailsQuery
     {
         private readonly IMovieStoreDbContext _context;
         private readonly IMapper _mapper;
         public int ActorId { get; set; }
-        public GetActorDetailQuery(IMovieStoreDbContext context, IMapper mapper)
+        public GetActorDetailsQuery(IMovieStoreDbContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;

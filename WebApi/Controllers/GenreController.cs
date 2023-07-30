@@ -39,10 +39,10 @@ public class GenreController : ControllerBase
     {
         GenresViewIdModel result;
 
-        GetGenreDetailQuery query = new GetGenreDetailQuery(_context, _mapper);
+        GetGenreDetailsQuery query = new GetGenreDetailsQuery(_context, _mapper);
         query.GenreId = id;
 
-        GetGenreDetailQueryValidator validator = new GetGenreDetailQueryValidator();
+        GetGenreDetailsQueryValidator validator = new GetGenreDetailsQueryValidator();
         validator.ValidateAndThrow(query);
 
         result = query.Handle();

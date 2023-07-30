@@ -2,9 +2,9 @@ using FluentValidation;
 
 namespace WebApi.Application.ActorOperations.Queries.GetActorDetails
 {
-    public class GetActorDetailQueryValidator : AbstractValidator<GetActorDetailQuery>
+    public class GetActorDetailsQueryValidator : AbstractValidator<GetActorDetailsQuery>
     {
-        public GetActorDetailQueryValidator()
+        public GetActorDetailsQueryValidator()
         {
             RuleFor(query => query.ActorId).GreaterThan(0);
         }

@@ -20,7 +20,7 @@ namespace WebApi.Application.GenreOperations.Commands.CreateGenre
         {
             var genre = _context.Genres.SingleOrDefault(x => x.Name == Model.Name);
             if(genre != null)
-                throw new InvalidOperationException("This Actor already exists.");
+                throw new InvalidOperationException("This Genre already exists.");
 
             genre = _mapper.Map<Genre>(Model);
 

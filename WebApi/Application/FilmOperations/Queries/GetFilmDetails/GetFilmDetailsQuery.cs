@@ -4,12 +4,12 @@ using WebApi.DBOperations;
 
 namespace WebApi.Application.FilmOperations.Queries.GetFilmDetails
 {
-    public class GetFilmDetailQuery
+    public class GetFilmDetailsQuery
     {
         private readonly IMovieStoreDbContext _context;
         private readonly IMapper _mapper;
         public int FilmId { get; set; }
-        public GetFilmDetailQuery(IMovieStoreDbContext context, IMapper mapper)
+        public GetFilmDetailsQuery(IMovieStoreDbContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;

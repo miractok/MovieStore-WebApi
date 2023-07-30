@@ -2,9 +2,9 @@ using FluentValidation;
 
 namespace WebApi.Application.GenreOperations.Queries.GetGenreDetails
 {
-    public class GetGenreDetailQueryValidator : AbstractValidator<GetGenreDetailQuery>
+    public class GetGenreDetailsQueryValidator : AbstractValidator<GetGenreDetailsQuery>
     {
-        public GetGenreDetailQueryValidator()
+        public GetGenreDetailsQueryValidator()
         {
             RuleFor(query => query.GenreId).GreaterThan(0);
         }

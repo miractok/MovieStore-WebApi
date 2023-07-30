@@ -4,12 +4,12 @@ using WebApi.DBOperations;
 
 namespace WebApi.Application.GenreOperations.Queries.GetGenreDetails
 {
-    public class GetGenreDetailQuery
+    public class GetGenreDetailsQuery
     {
         private readonly IMovieStoreDbContext _context;
         private readonly IMapper _mapper;
         public int GenreId { get; set; }
-        public GetGenreDetailQuery(IMovieStoreDbContext context, IMapper mapper)
+        public GetGenreDetailsQuery(IMovieStoreDbContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;

@@ -84,7 +84,7 @@ public class DirectorController : ControllerBase
         command.DirectorId = id;
         command.Model = updateDirector;
         
-        UpdateActorCommandValidator validator = new UpdateActorCommandValidator();
+        UpdateDirectorCommandValidator validator = new UpdateDirectorCommandValidator();
         validator.ValidateAndThrow(command);
 
         command.Handle();

@@ -39,10 +39,10 @@ public class FilmController : ControllerBase
     {
         FilmsViewIdModel result;
 
-        GetFilmDetailQuery query = new GetFilmDetailQuery(_context, _mapper);
+        GetFilmDetailsQuery query = new GetFilmDetailsQuery(_context, _mapper);
         query.FilmId = id;
 
-        GetFilmDetailQueryValidator validator = new GetFilmDetailQueryValidator();
+        GetFilmDetailsQueryValidator validator = new GetFilmDetailsQueryValidator();
         validator.ValidateAndThrow(query);
 
         result = query.Handle();

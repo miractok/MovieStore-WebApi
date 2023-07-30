@@ -39,10 +39,10 @@ public class ActorController : ControllerBase
     {
         ActorsViewIdModel result;
 
-        GetActorDetailQuery query = new GetActorDetailQuery(_context, _mapper);
+        GetActorDetailsQuery query = new GetActorDetailsQuery(_context, _mapper);
         query.ActorId = id;
 
-        GetActorDetailQueryValidator validator = new GetActorDetailQueryValidator();
+        GetActorDetailsQueryValidator validator = new GetActorDetailsQueryValidator();
         validator.ValidateAndThrow(query);
 
         result = query.Handle();

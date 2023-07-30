@@ -20,7 +20,6 @@ namespace WebApi.Application.FavouriteGenreOperations.Commands.CreateFavouriteGe
         {
             var favouriteGenre = _context.FavouriteGenres.SingleOrDefault(x => x.CustomerId == Model.CustomerId && x.GenreId == Model.GenreId);
 
-            
             if(favouriteGenre != null)
                 throw new InvalidOperationException("This relation already exists.");
 
