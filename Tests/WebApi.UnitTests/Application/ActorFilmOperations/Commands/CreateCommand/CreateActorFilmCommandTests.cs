@@ -53,7 +53,7 @@ namespace Applications.ActorFilmOperations.Commands.CreateCommand
         }
 
         [Fact]
-        public void WhenAlreadyExistMovieAndActorIdInModelIsGiven_InvalidOperationException_ShouldBeReturnError()
+        public void WhenAlreadyExistFilmAndActorIdInModelIsGiven_InvalidOperationException_ShouldBeReturnError()
         {
             //arrange
             var actorFilm = new ActorFilm() {ActorId = 3 , FilmId = 4};

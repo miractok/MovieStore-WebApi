@@ -39,10 +39,10 @@ public class FavouriteGenreController : ControllerBase
     {
         FavouriteGenreViewIdModel result;
 
-        GetFavouriteGenreDetailQuery query = new GetFavouriteGenreDetailQuery(_context, _mapper);
+        GetFavouriteGenreDetailsQuery query = new GetFavouriteGenreDetailsQuery(_context, _mapper);
         query.favouriteGenreId = id;
 
-        GetFavouriteGenreDetailQueryValidator validator = new GetFavouriteGenreDetailQueryValidator();
+        GetFavouriteGenreDetailsQueryValidator validator = new GetFavouriteGenreDetailsQueryValidator();
         validator.ValidateAndThrow(query);
 
         result = query.Handle();

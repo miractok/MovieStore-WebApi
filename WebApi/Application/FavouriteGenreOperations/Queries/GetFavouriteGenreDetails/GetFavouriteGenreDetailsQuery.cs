@@ -4,12 +4,12 @@ using WebApi.DBOperations;
 
 namespace WebApi.Application.FavouriteGenreOperations.Queries.GetFavouriteGenreDetails
 {
-    public class GetFavouriteGenreDetailQuery
+    public class GetFavouriteGenreDetailsQuery
     {
         private readonly IMovieStoreDbContext _context;
         private readonly IMapper _mapper;
         public int favouriteGenreId { get; set; }
-        public GetFavouriteGenreDetailQuery(IMovieStoreDbContext context, IMapper mapper)
+        public GetFavouriteGenreDetailsQuery(IMovieStoreDbContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;

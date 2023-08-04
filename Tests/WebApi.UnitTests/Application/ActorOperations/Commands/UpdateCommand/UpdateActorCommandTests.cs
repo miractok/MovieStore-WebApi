@@ -21,7 +21,7 @@ namespace Applications.ActorOperations.Commands.UpdateCommand
         public void WhenActorIdIsInvalid_InavlidOperationException_ShouldBeReturn()
         {
             UpdateActorCommand command = new UpdateActorCommand(_context);
-            command.ActorId = 178;
+            command.ActorId = 426;
 
             FluentActions
                 .Invoking(() => command.Handle())

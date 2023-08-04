@@ -52,7 +52,7 @@ namespace Applications.ActorFilmOperations.Commands.UpdateCommand
         public void WhenWrongFilmIdIsGiven_InvalidOperationException_ShouldReturn()
         {
             //arrange
-            UpdateActorFilmModel model = new UpdateActorFilmModel() { ActorId = 1, FilmId = 246};
+            UpdateActorFilmModel model = new UpdateActorFilmModel() { ActorId = 1, FilmId = 487};
 
             //act
             UpdateActorFilmCommand command = new UpdateActorFilmCommand(_context);
@@ -82,8 +82,8 @@ namespace Applications.ActorFilmOperations.Commands.UpdateCommand
             FluentActions.Invoking(()=> command.Handle()).Invoke();
 
             //assert
-            var updateactor = _context.ActorFilms.SingleOrDefault(actorfilm => actorfilm.ActorId == model.ActorId && actorfilm.FilmId == model.FilmId);
-            updateactor.Should().NotBeNull();
+            var updateActorFilm = _context.ActorFilms.SingleOrDefault(actorfilm => actorfilm.ActorId == model.ActorId && actorfilm.FilmId == model.FilmId);
+            updateActorFilm.Should().NotBeNull();
         }
     }
 }

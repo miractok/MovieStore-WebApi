@@ -42,7 +42,7 @@ public class OrderController : ControllerBase
         GetOrderDetailsQuery query = new GetOrderDetailsQuery(_context, _mapper);
         query.OrderId = id;
 
-        GetOrderDetailQueryValidator validator = new GetOrderDetailQueryValidator();
+        GetOrderDetailsQueryValidator validator = new GetOrderDetailsQueryValidator();
         validator.ValidateAndThrow(query);
 
         result = query.Handle();

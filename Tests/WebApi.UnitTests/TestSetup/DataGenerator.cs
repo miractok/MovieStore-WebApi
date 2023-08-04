@@ -30,7 +30,8 @@ namespace TestSetup
             context.Genres.AddRange(
                     new Genre{Name = "Fantasy"},
                     new Genre{Name = "Science Fiction"},
-                    new Genre{Name = "Adventure"}
+                    new Genre{Name = "Adventure"},
+                    new Genre{Name = "GenreTestsDummy"}
                 );
 
             context.DirectorFilms.AddRange(

@@ -32,7 +32,7 @@ namespace Applications.ActorOperations.Queries.GetActorDetails
         }
 
         [Fact]
-        public void WhenValidDirectorIdIsGiven_Actor_ShouldReturn()
+        public void WhenValidActorIdIsGiven_Actor_ShouldReturn()
         {
             GetActorDetailsQuery query = new GetActorDetailsQuery(_context, _mapper);
             query.ActorId = 1;

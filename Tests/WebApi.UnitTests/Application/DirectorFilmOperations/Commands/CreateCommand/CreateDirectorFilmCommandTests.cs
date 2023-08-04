@@ -74,7 +74,7 @@ namespace Applications.DirectorFilmOperations.Commands.CreateCommand
         }
 
         [Fact]
-        public void WhenNotExistMovieAndDirectorIdIsGiven_DirectorFilmRelation_ShouldBeCreated()
+        public void WhenNotExistFilmAndDirectorIdIsGiven_DirectorFilmRelation_ShouldBeCreated()
         {
             // arrange
             CreateDirectorFilmViewModel model = new CreateDirectorFilmViewModel() { DirectorId = 4, FilmId = 4};

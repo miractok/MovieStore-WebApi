@@ -52,7 +52,7 @@ namespace Applications.DirectorFilmOperations.Commands.UpdateCommand
         public void WhenWrongFilmIdIsGiven_InvalidOperationException_ShouldReturn()
         {
             //arrange
-            UpdateDirectorFilmModel model = new UpdateDirectorFilmModel() { DirectorId = 1, FilmId = 246};
+            UpdateDirectorFilmModel model = new UpdateDirectorFilmModel() { DirectorId = 1, FilmId = 749};
 
             //act
             UpdateDirectorFilmCommand command = new UpdateDirectorFilmCommand(_context);

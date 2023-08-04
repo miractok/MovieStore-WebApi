@@ -32,7 +32,7 @@ namespace Applications.DirectorFilmOperations.Queries.GetDirectorFilmDetails
         }
 
         [Fact]
-        public void WhenValidDirectorIdIsGiven_Actor_ShouldReturn()
+        public void WhenValidDirectorFilmIdIsGiven_DirectorFilm_ShouldReturn()
         {
             GetDirectorFilmDetailsQuery query = new GetDirectorFilmDetailsQuery(_context, _mapper);
             query.DirectorFilmId = 1;

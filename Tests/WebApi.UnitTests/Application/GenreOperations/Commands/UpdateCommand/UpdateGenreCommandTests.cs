@@ -21,7 +21,7 @@ namespace Applications.GenreOperations.Commands.UpdateCommand
         public void WhenGenreIdIsInvalid_InavlidOperationException_ShouldBeReturn()
         {
             UpdateGenreCommand command = new UpdateGenreCommand(_context);
-            command.GenreId = 210;
+            command.GenreId = 756;
 
             FluentActions
                 .Invoking(() => command.Handle())

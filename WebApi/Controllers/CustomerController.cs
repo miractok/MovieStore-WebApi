@@ -2,6 +2,7 @@ using AutoMapper;
 using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.Application.CustomerOperations.Commands.CreateCustomer;
+using WebApi.Application.CustomerOperations.Commands.DeleteCustomer;
 using WebApi.Application.CustomerOperations.Queries.GetCustomerDetails;
 using WebApi.Application.TokenOperations.Commands.CreateToken;
 using WebApi.Application.TokenOperations.Commands.RefreshToken;
@@ -30,6 +31,10 @@ public class CustomerController : ControllerBase
     {
         CreateCustomerCommand command = new CreateCustomerCommand(_mapper,_context);
         command.Model = newCustomer;
+
+        CreateCustomerCommandValidator validator = new CreateCustomerCommandValidator();
+        validator.ValidateAndThrow(command);
+
         command.Handle();
 
         return Ok();
@@ -43,6 +48,19 @@ public class CustomerController : ControllerBase
         
         var token = command.Handle();
         return token;
+    }
+
+    [HttpDelete("id")]
+    public IActionResult DeleteUser(int id)
+    {
+        DeleteCustomerCommand command = new DeleteCustomerCommand(_context);
+        command.CustomerId = id;
+
+        DeleteCustomerCommandValidator validator = new DeleteCustomerCommandValidator();
+        validator.ValidateAndThrow(command);
+
+        command.Handle();
+        return Ok();      
     }
 
     [HttpGet("refreshToken")]

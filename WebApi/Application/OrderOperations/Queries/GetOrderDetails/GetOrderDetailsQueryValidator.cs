@@ -2,9 +2,9 @@ using FluentValidation;
 
 namespace WebApi.Application.OrderOperations.Queries.GetOrderDetails
 {
-    public class GetOrderDetailQueryValidator : AbstractValidator<GetOrderDetailsQuery>
+    public class GetOrderDetailsQueryValidator : AbstractValidator<GetOrderDetailsQuery>
     {
-        public GetOrderDetailQueryValidator()
+        public GetOrderDetailsQueryValidator()
         {
             RuleFor(query => query.OrderId).GreaterThan(0);
         }
