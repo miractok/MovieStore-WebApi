@@ -4,7 +4,7 @@ Movie Store Web Api - Patika.Dev Completed .NET exercice project [Patika.Dev](ht
 ## *INCLUDE*
 
 - Entity Framework Core
-- Mapper
+- Auto Mapper
 - Dependency Injection
 - Fluent Validation
 - Authentication Jwt Bearer
