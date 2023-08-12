@@ -1,5 +1,5 @@
 # MovieStore-WebApi
-Movie Store Web Api - Patika.Dev Completed .NET exercice project [Patika.Dev](https://academy.patika.dev/)
+Movie Store Web Api - Patika.Dev Completed .NET exercice project [Patika.Dev]([https://academy.patika.dev/](https://academy.patika.dev/en/courses/net-core/19-proje-1))
 
 ## *INCLUDE*
 
