@@ -41,6 +41,6 @@ namespace WebApi.Application.DirectorFilmOperations.Commands.UpdateDirectorFilm
     {
         public int FilmId { get; set; }
         public int DirectorId { get; set; }
-        public bool IsActive { get; set; }
+        public bool IsActive { get; set; } = true;
     }
 }

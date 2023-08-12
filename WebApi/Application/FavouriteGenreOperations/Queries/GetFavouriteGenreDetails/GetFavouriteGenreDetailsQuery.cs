@@ -17,7 +17,7 @@ namespace WebApi.Application.FavouriteGenreOperations.Queries.GetFavouriteGenreD
 
         public FavouriteGenreViewIdModel Handle()
         {
-            var favouriteGenre = _context.FavouriteGenres.Include(x=> x.Customer).Include(x=> x.Genre).Where(favouriteGenre=> favouriteGenre.Id == favouriteGenreId).SingleOrDefault();
+            var favouriteGenre = _context.FavouriteGenres.Include(x=> x.Customer).Include(x=> x.Genre).Where(favouriteGenre=> favouriteGenre.Id == favouriteGenreId && favouriteGenre.IsActive).SingleOrDefault();
 
             if(favouriteGenre == null)
                 throw new InvalidOperationException("The Id you entered does not match any FavouriteGenre relation.");

@@ -1,5 +1,6 @@
 using AutoMapper;
 using FluentValidation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.Application.ActorFilmOperations.Commands.CreateActorFilm;
 using WebApi.Application.ActorFilmOperations.Commands.DeleteActorFilm;
@@ -9,7 +10,7 @@ using WebApi.Application.ActorFilmOperations.Queries.GetActorFilmDetails;
 using WebApi.DBOperations;
 
 namespace WebApi.Controllers;
-
+//[Authorize]
 [ApiController]
 [Route("[Controller]s")]
 public class ActorFilmController : ControllerBase

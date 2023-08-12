@@ -7,9 +7,11 @@ using WebApi.Application.DirectorOperations.Commands.UpdateDirector;
 using WebApi.Application.DirectorOperations.Queries.GetDirectors;
 using WebApi.Application.DirectorOperations.Queries.GetDirectorDetails;
 using WebApi.DBOperations;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApi.Controllers;
 
+//[Authorize]
 [ApiController]
 [Route("[Controller]s")]
 public class DirectorController : ControllerBase

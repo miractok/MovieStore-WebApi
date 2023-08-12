@@ -6,7 +6,7 @@ namespace WebApi.Application.FilmOperations.Commands.DeleteFilm
     {
         public DeleteFilmCommandValidator()
         {
-            RuleFor(command => command.FilmId).GreaterThan(0);
+            RuleFor(command => command.FilmId).GreaterThan(0).NotEmpty().NotNull();
         }
     }
 }

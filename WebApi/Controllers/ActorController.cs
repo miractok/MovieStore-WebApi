@@ -7,9 +7,10 @@ using WebApi.Application.ActorOperations.Commands.UpdateActor;
 using WebApi.Application.ActorOperations.Queries.GetActors;
 using WebApi.Application.ActorOperations.Queries.GetActorDetails;
 using WebApi.DBOperations;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApi.Controllers;
-
+//[Authorize]
 [ApiController]
 [Route("[Controller]s")]
 public class ActorController : ControllerBase

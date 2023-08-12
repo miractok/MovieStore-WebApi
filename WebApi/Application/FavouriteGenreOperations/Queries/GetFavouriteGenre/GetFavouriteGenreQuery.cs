@@ -18,7 +18,7 @@ namespace WebApi.Application.FavouriteGenreOperations.Queries.GetFavouriteGenre
 
         public List<FavouriteGenreViewModel> Handle()
         {
-            var favouriteGenreList = _context.FavouriteGenres.Include(x => x.Customer).Include(x => x.Genre).OrderBy(x=> x.Id).ToList<FavouriteGenre>();
+            var favouriteGenreList = _context.FavouriteGenres.Include(x => x.Customer).Include(x => x.Genre).Where(x => x.IsActive).OrderBy(x=> x.Id).ToList<FavouriteGenre>();
             List<FavouriteGenreViewModel> vm = _mapper.Map<List<FavouriteGenreViewModel>>(favouriteGenreList);
 
             return vm;

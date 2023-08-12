@@ -17,7 +17,7 @@ namespace WebApi.Application.FilmOperations.Queries.GetFilmDetails
 
         public FilmsViewIdModel Handle()
         {
-            var film = _context.Films.Include(x=> x.ActorFilm).ThenInclude(x=> x.Actor).Include(x=> x.Genre).Include(x=> x.DirectorFilm).ThenInclude(x => x.Director).Where(film=> film.Id == FilmId).SingleOrDefault();
+            var film = _context.Films.Include(x=> x.ActorFilm.Where(e => e.IsActive)).ThenInclude(x=> x.Actor).Include(x=> x.Genre).Include(x=> x.DirectorFilm.Where(e => e.IsActive)).ThenInclude(x => x.Director).Where(film=> film.Id == FilmId).SingleOrDefault();
             if(film == null)
                 throw new InvalidOperationException("The Id you entered does not match any film.");
             FilmsViewIdModel vm = _mapper.Map<FilmsViewIdModel>(film); 
