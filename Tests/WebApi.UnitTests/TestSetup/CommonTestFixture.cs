@@ -12,7 +12,7 @@ namespace TestSetup
 
         public CommonTestFixture()
         {
-            var options = new DbContextOptionsBuilder<MovieStoreDbContext>().UseInMemoryDatabase(databaseName:"BookStoreTestDB").Options;
+            var options = new DbContextOptionsBuilder<MovieStoreDbContext>().UseInMemoryDatabase(databaseName:"MovieStoreTestDB").Options;
             Context = new MovieStoreDbContext(options);
 
             Context.Database.EnsureCreated();
